@@ -24,7 +24,13 @@ public class UserController : ControllerBase
     [HttpGet("{email}", Name = "GetUser")]
     public IActionResult Get(string email)
     {                
-        throw new NotImplementedException();
+        User existingUser = _service.GetUser(email);
+        if (existingUser == null)
+        {
+            return NotFound();
+        }
+        return Ok(existingUser);
+        
     }
 
     // 7 - Sua aplicação deve ter o endpoint POST /user

@@ -20,7 +20,7 @@ public class RecipesController : ControllerBase
         this._service = service;        
     }
 
-    // 1 - Sua aplicação deve ter o endpoint GET /recipe
+    // 1 - Sua aplicação deve ter o endpoint GET /recipe.
     //Read
     [HttpGet]
     public IActionResult Get()

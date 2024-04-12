@@ -33,7 +33,13 @@ public class RecipesController : ControllerBase
     [HttpGet("{name}", Name = "GetRecipe")]
     public IActionResult Get(string name)
     {                
-        throw new NotImplementedException();
+        Recipe existingRecipe = _service.GetRecipe(name);
+        if (existingRecipe == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(existingRecipe);
     }
 
     // 3 - Sua aplicação deve ter o endpoint POST /recipe
